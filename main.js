@@ -1,9 +1,9 @@
 const {
   app,
-  BrowserWindow,
   Tray,
-  globalShortcut,
-  nativeImage
+  nativeImage,
+  BrowserWindow,
+  globalShortcut
 } = require("electron");
 const path = require("path");
 
@@ -11,9 +11,9 @@ let tray;
 let window;
 
 app.on("ready", () => {
-  let icon = nativeImage.createFromDataURL(base64Icon);
+  // Initialise tray
+  const icon = nativeImage.createFromDataURL(base64Icon);
   tray = new Tray(icon);
-
   tray.on("click", function(event) {
     toggleWindow();
 
@@ -23,9 +23,10 @@ app.on("ready", () => {
     }
   });
 
+  // Initialise menu
   window = new BrowserWindow({
-    width: 240,
-    height: 200,
+    width: 550,
+    height: 400,
     show: false,
     frame: false,
     resizable: false,
@@ -34,10 +35,14 @@ app.on("ready", () => {
       nodeIntegration: true
     }
   });
-  window.loadURL(path.join("file://", __dirname, "index.html"));
+
+  // Ensure window appears on top of fullscreen applications
   window.setAlwaysOnTop(true, "floating");
   window.setVisibleOnAllWorkspaces(true);
   window.setFullScreenable(false);
+
+  // Set the window's content
+  window.loadURL(path.join("file://", __dirname, "index.html"));
 
   window.on("blur", () => {
     if (!window.webContents.isDevToolsOpened()) {
@@ -45,8 +50,15 @@ app.on("ready", () => {
     }
   });
 
+  // Configure keyboard shortcuts
   globalShortcut.register("CommandOrControl+P", () => {
+    console.log("toggle pause");
     window.webContents.send("togglePause");
+  });
+
+  globalShortcut.register("CommandOrControl+L", () => {
+    console.log("switch channels");
+    window.webContents.send("switchChannels");
   });
 });
 
@@ -76,18 +88,5 @@ const showWindow = () => {
   window.focus();
 };
 
-// Tray Icon as Base64 so tutorial has less overhead
-let base64Icon = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw
-7AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AkZCg87wZW7ewA
-AAp1JREFUOMuV1U2IVlUcx/HPnbc0MWwEF40hRWRQmWhEUi4KorlTQ0zQKgqSxKinRYuWrdq0iIp8DAy
-CFmYUUVTYY0Qw0SsYVDQRlFlQU4o4VDMUY9NzWtz/45znzo3yv7n/l3O+53fOPS+F/7R9G0l34Vlap/x
-PG+gPby76471jpJdxI4p/x5QrakPVZ3yI4lLSLH4LpetIT5N24AWKpZXAW4boXogFnGxQXEzhdQYHl0v
-pbtJkBIOkBqXpVhzAWIPi8hocxCyH5qp0e10oHY6BNy3P7szULyc9hzkGTjat8WPRqctkD3QORrJ211J
-srPV7CKP4i7S6CXxF+GtY2lG5D5yg+D6bckHaRXs463dV+OtJVzeBj4Q/inuy2uf4NYPvyVR38Vn4GzD
-ZAC5ezHbITsqtEU8HvGcjpFblDncpDma16yhvqit+c3mLuQj3Vm7rJ4r3kW+z+6sD80aKQWcivwm318B
-pHk9mA11PuSXil/B1thyrSA9HMI8nMtYNlDszcKdbHVcLkduCO0L1VxTv1VTv5plR3lrCuzga+c2YqB2
-QNEfqjV7EWl8c8X78kKleTTfWeuA49maDjlNuz8CHFykOYDEabKvg0Jqh+AB/Z4D7qs+h03gbxyK/FVf
-WL6FfsC/8tdGoZ0/hRKZ6A+2pUP1jdZecse01cGcBr2YNzqdcG6q/oDgS+7e3XLeF6j/wTvzM6Lfi2nQ
-KP8e0P6Ezn9X2488MvLnW75vwP2wCr8J5eD4upsxaHZzOwNNZcU2c3FfwWg1cDuISfIxH6fzedE8G90s
-8nuXH8B0eoXNc/6tQjsQfXaQz0/BEXUD3W4oF0hQPflTlJwZIl+FcOp86e2vvoj1Le6I/P974ZA2dBXk
-97qQ13Z8+3PS0+AdjKa1R95YOZgAAAABJRU5ErkJggg==`;
+const base64Icon =
+  "data:image/png;base64,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";
