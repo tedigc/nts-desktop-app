@@ -1,110 +1,80 @@
 const {
   app,
   BrowserWindow,
-  ipcMain,
   Tray,
-  nativeImage,
-  globalShortcut
+  globalShortcut,
+  nativeImage
 } = require("electron");
 const path = require("path");
 
+let tray;
 let window;
 
 app.on("ready", () => {
+  let icon = nativeImage.createFromDataURL(base64Icon);
+  tray = new Tray(icon);
+
+  tray.on("click", function(event) {
+    toggleWindow();
+
+    // Show devtools when command clicked
+    if (window.isVisible() && process.defaultApp && event.metaKey) {
+      window.openDevTools({ mode: "detach" });
+    }
+  });
+
   window = new BrowserWindow({
+    width: 240,
+    height: 200,
+    show: false,
+    frame: false,
+    resizable: false,
+    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true
     }
   });
   window.loadURL(path.join("file://", __dirname, "index.html"));
+  window.setAlwaysOnTop(true, "floating");
+  window.setVisibleOnAllWorkspaces(true);
+  window.setFullScreenable(false);
+
+  window.on("blur", () => {
+    if (!window.webContents.isDevToolsOpened()) {
+      window.hide();
+    }
+  });
 
   globalShortcut.register("CommandOrControl+P", () => {
     window.webContents.send("togglePause");
   });
 });
 
-// This method is called once Electron is ready to run our code
-// It is effectively the main method of our Electron app
-// app.on("ready", () => {
-//   // Setup the menubar with an icon
-//   let icon = nativeImage.createFromDataURL(base64Icon);
-//   tray = new Tray(icon);
+const toggleWindow = () => {
+  if (window.isVisible()) {
+    window.hide();
+  } else {
+    app.dock.hide();
+    showWindow();
+  }
+};
 
-// Add a click handler so that when the user clicks on the menubar icon, it shows
-// our popup window
-// tray.on("click", function(event) {
-//   toggleWindow();
+const showWindow = () => {
+  const trayPos = tray.getBounds();
+  const windowPos = window.getBounds();
+  let x, y;
+  if (process.platform == "darwin") {
+    x = Math.round(trayPos.x + trayPos.width / 2 - windowPos.width / 2);
+    y = Math.round(trayPos.y + trayPos.height);
+  } else {
+    x = Math.round(trayPos.x + trayPos.width / 2 - windowPos.width / 2);
+    y = Math.round(trayPos.y + trayPos.height * 10);
+  }
 
-//   // Show devtools when command clicked
-//   if (window.isVisible() && process.defaultApp && event.metaKey) {
-//     window.openDevTools({ mode: "detach" });
-//   }
-// });
-
-// Make the popup window for the menubar
-//   window = new BrowserWindow({
-//     width: 300,
-//     height: 200,
-//     show: false,
-//     frame: false,
-//     resizable: false
-//   });
-
-//   // Tell the popup window to load our index.html file
-//   window.loadURL(`file://${path.join(__dirname, "index.html")}`);
-
-//   // Only close the window on blur if dev tools isn't opened
-//   window.on("blur", () => {
-//     if (!window.webContents.isDevToolsOpened()) {
-//       window.hide();
-//     }
-//   });
-
-//   globalShortcut.register("CommandOrControl+P", () => {
-//     // currentStream = currentStream === 1 ? 2 : 1;
-//     // global.currentStream = currentStream;
-//     console.log("sending message");
-//     window.webContents.send("testBindRemote", "HelloWorld");
-//   });
-// });
-
-// const toggleWindow = () => {
-//   if (window.isVisible()) {
-//     window.hide();
-//   } else {
-//     showWindow();
-//   }
-// };
-
-// const showWindow = () => {
-//   const trayPos = tray.getBounds();
-//   const windowPos = window.getBounds();
-//   let x,
-//     y = 0;
-//   if (process.platform == "darwin") {
-//     x = Math.round(trayPos.x + trayPos.width / 2 - windowPos.width / 2);
-//     y = Math.round(trayPos.y + trayPos.height);
-//   } else {
-//     x = Math.round(trayPos.x + trayPos.width / 2 - windowPos.width / 2);
-//     y = Math.round(trayPos.y + trayPos.height * 10);
-//   }
-
-//   window.setPosition(x, y, false);
-//   window.show();
-//   window.focus();
-// };
-
-// ipcMain.on("show-window", () => {
-//   showWindow();
-// });
-
-// app.on("window-all-closed", () => {
-//   // On macOS it is common for applications and their menu bar
-//   // to stay active until the user quits explicitly with Cmd + Q
-//   if (process.platform !== "darwin") {
-//     app.quit();
-//   }
-// });
+  window.setPosition(x, y + 16, false);
+  window.show();
+  window.focus();
+};
 
 // Tray Icon as Base64 so tutorial has less overhead
 let base64Icon = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw
@@ -121,39 +91,3 @@ WL6FfsC/8tdGoZ0/hRKZ6A+2pUP1jdZecse01cGcBr2YNzqdcG6q/oDgS+7e3XLeF6j/wTvzM6Lfi2nQ
 KP8e0P6Ezn9X2488MvLnW75vwP2wCr8J5eD4upsxaHZzOwNNZcU2c3FfwWg1cDuISfIxH6fzedE8G90s
 8nuXH8B0eoXNc/6tQjsQfXaQz0/BEXUD3W4oF0hQPflTlJwZIl+FcOp86e2vvoj1Le6I/P974ZA2dBXk
 97qQ13Z8+3PS0+AdjKa1R95YOZgAAAABJRU5ErkJggg==`;
-
-// const { globalShortcut } = require("electron");
-// const { menubar } = require("menubar");
-
-// let currentStream = 1;
-
-// const mb = menubar({
-//   // icon: __dirname + "/nts.png",
-//   tooltip: "NTS mix",
-//   dir: __dirname,
-//   resizable: false,
-//   preloadWindow: true,
-//   browserWindow: {
-//     y: 32,
-//     width: 300,
-//     height: 240,
-//     alwaysOnTop: true
-//   }
-// });
-
-// mb.on("ready", () => {
-//   globalShortcut.register("CommandOrControl+P", () => {
-//     currentStream = currentStream === 1 ? 2 : 1;
-//     global.currentStream = currentStream;
-//     // mb.window.webContents.send("testBindRemote", "HelloWorld");
-//   });
-// });
-
-// mb.on("focus-lost", () => {
-//   mb.hideWindow();
-// });
-
-// mb.on("will-quit", () => {
-//   console.log("Exiting...");
-//   globalShortcut.unregister("CommandOrControl+P");
-// });
