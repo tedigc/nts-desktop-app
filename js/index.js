@@ -5,6 +5,8 @@ const streams = [
   "https://stream-relay-geo.ntslive.net/stream2?client=NTSWebApp"
 ];
 
+const streamData = [{}, {}];
+
 const statusSpan = document.querySelector("#status");
 const channelSpan = document.querySelector("#channel");
 const locationSpan = document.querySelector("#location");
@@ -23,18 +25,18 @@ ipcRenderer.on("togglePause", () => {
     audio.pause();
     delete audio;
   }
-  statusSpan.innerText = paused ? "Paused" : "Playing";
 });
 
 ipcRenderer.on("switchChannels", () => {
   channel ^= 1;
-  channelSpan.innerText = `${channel + 1}`;
+  updateUI(channel);
 
   audio.pause();
   delete audio;
 
   audio = new Audio(streams[channel]);
   audio.play();
+  paused = false;
 });
 
 window.addEventListener("load", () => {
@@ -45,15 +47,28 @@ window.addEventListener("load", () => {
   fetch("https://www.nts.live/api/v2/live", { headers })
     .then(res => res.json())
     .then(data => {
-      const {
-        name,
-        description,
-        media,
-        location_long
-      } = data.results[0].now.embeds.details;
-      locationSpan.innerText = location_long;
-      document.body.style.backgroundImage = `url('${
-        media.background_medium_large
-      }')`;
+      streamData[0] = apiToStreamData(data, 0);
+      streamData[1] = apiToStreamData(data, 1);
+      updateUI(channel);
     });
 });
+
+const updateUI = channel => {
+  channelSpan.innerText = `${channel + 1}`;
+  locationSpan.innerText = streamData[channel].location;
+  document.body.style.backgroundImage = `url('${
+    streamData[channel].background
+  }')`;
+};
+
+const apiToStreamData = (data, channelNumber) => {
+  const { name, description, media, location_long } = data.results[
+    channelNumber
+  ].now.embeds.details;
+  return {
+    name,
+    description,
+    location: location_long,
+    background: media.background_medium
+  };
+};

@@ -25,8 +25,8 @@ app.on("ready", () => {
 
   // Initialise menu
   window = new BrowserWindow({
-    width: 550,
-    height: 400,
+    width: 320,
+    height: 240,
     show: false,
     frame: false,
     resizable: false,

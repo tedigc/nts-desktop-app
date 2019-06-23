@@ -4,8 +4,12 @@
 }
 
 * {
-  font-family: Arial;
-  letter-spacing: 0.05px;
+  /* font-family: Arial;
+  letter-spacing: 0.05px; */
+
+  font-family: "UniversCondensed";
+  letter-spacing: 1px;
+
   overflow-y: visible;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -34,13 +38,24 @@ html {
 body {
   color: #fff;
   background-color: #000;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center;
+  background-size: cover;
   padding: 1rem;
+  z-index: -2;
+}
+
+#vignette {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(transparent, #000a), #fff0;
 }
 
 header {
+  position: fixed;
   display: flex;
   height: 2.5rem;
 }
@@ -79,4 +94,9 @@ h3 {
   letter-spacing: 1px;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+#up-next {
+  position: fixed;
+  right: 1rem;
 }
