@@ -52,12 +52,12 @@ app.on("ready", () => {
 
   // Configure keyboard shortcuts
   globalShortcut.register("CommandOrControl+P", () => {
-    console.log("toggle pause");
+    console.log("Command: Toggle pause");
     window.webContents.send("togglePause");
   });
 
   globalShortcut.register("CommandOrControl+L", () => {
-    console.log("switch channels");
+    console.log("Command: Switch channels");
     window.webContents.send("switchChannels");
   });
 });
@@ -66,7 +66,7 @@ const toggleWindow = () => {
   if (window.isVisible()) {
     window.hide();
   } else {
-    app.dock.hide();
+    app.dock.hide(); // Needed to ensure window appears on top of fullscreen apps
     showWindow();
   }
 };
@@ -74,14 +74,10 @@ const toggleWindow = () => {
 const showWindow = () => {
   const trayPos = tray.getBounds();
   const windowPos = window.getBounds();
-  let x, y;
-  if (process.platform == "darwin") {
-    x = Math.round(trayPos.x + trayPos.width / 2 - windowPos.width / 2);
-    y = Math.round(trayPos.y + trayPos.height);
-  } else {
-    x = Math.round(trayPos.x + trayPos.width / 2 - windowPos.width / 2);
-    y = Math.round(trayPos.y + trayPos.height * 10);
-  }
+
+  const yScale = process.platform == "darwin" ? 1 : 10;
+  const x = Math.round(trayPos.x + trayPos.width / 2 - windowPos.width / 2);
+  const y = Math.round(trayPos.y + trayPos.height * yScale);
 
   window.setPosition(x, y + 16, false);
   window.show();
