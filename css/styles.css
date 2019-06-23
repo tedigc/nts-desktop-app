@@ -8,7 +8,6 @@
   letter-spacing: 0.05px; */
 
   font-family: "UniversCondensed";
-  letter-spacing: 1px;
 
   overflow-y: visible;
   box-sizing: border-box;
@@ -96,7 +95,10 @@ h3 {
   text-transform: uppercase;
 }
 
-#up-next {
+#time {
+  font-family: "UniversCondensed";
   position: fixed;
   right: 1rem;
+  font-size: 1.5rem;
+  letter-spacing: 0px;
 }

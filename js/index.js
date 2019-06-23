@@ -7,9 +7,9 @@ const streams = [
 
 const streamData = [{}, {}];
 
-const statusSpan = document.querySelector("#status");
 const channelSpan = document.querySelector("#channel");
 const locationSpan = document.querySelector("#location");
+const timeSpan = document.querySelector("#time");
 
 let audio = new Audio(streams[0]);
 let paused = true;
@@ -56,17 +56,33 @@ window.addEventListener("load", () => {
 const updateUI = channel => {
   channelSpan.innerText = `${channel + 1}`;
   locationSpan.innerText = streamData[channel].location;
+  timeSpan.innerText = streamData[channel].time;
   document.body.style.backgroundImage = `url('${
     streamData[channel].background
   }')`;
 };
 
-const apiToStreamData = (data, channelNumber) => {
+const apiToStreamData = (data, channel) => {
+  const { start_timestamp, end_timestamp } = data.results[channel].now;
+
+  const start = new Date(start_timestamp);
+  const end = new Date(end_timestamp);
+  const startTimeString = start.toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+  const endTimeString = end.toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+  const time = `${startTimeString} - ${endTimeString}`;
+
   const { name, description, media, location_long } = data.results[
-    channelNumber
+    channel
   ].now.embeds.details;
   return {
     name,
+    time,
     description,
     location: location_long,
     background: media.background_medium
