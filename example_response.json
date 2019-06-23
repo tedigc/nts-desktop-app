@@ -1,0 +1,264 @@
+{
+  "results": [
+    {
+      "channel_name": "1",
+      "now": {
+        "broadcast_title": "Chris Taylor (Grizzly Bear) - Cabin Fever",
+        "start_timestamp": "2019-06-23T17:00:00+01:00",
+        "end_timestamp": "2019-06-23T18:45:00+01:00",
+        "embeds": {
+          "details": {
+            "status": "pending",
+            "updated": "2019-06-23T12:05:20+00:00",
+            "name": "Chris Taylor (Grizzly Bear) - Cabin Fever ",
+            "description": "Grizzly Bear's Chris Taylor winds his way through the epic and eclectic influences behind his work as CANT, who's debut album was released via Warp. From expansive prog synths to deep jazz and some CANT exclusives it is journey and destination all wrapped up in one.\nMore Grizzly Bear",
+            "description_html": "<h3>Grizzly Bear's Chris Taylor winds his way through the epic and eclectic influences behind his work as CANT, who's debut album was released via Warp. From expansive prog synths to deep jazz and some CANT exclusives it is journey and destination all wrapped up in one.</h3>\n<p><a href=\"https://artists.wxaxrxp.net/grizzlybear\" target=\"_blank\">More Grizzly Bear</a></p>",
+            "facebook": "https://www.facebook.com/grizzlybear/",
+            "twitter": "https://twitter.com/grizzlybear",
+            "website": "https://www.instagram.com/grizzlybear",
+            "moods": [],
+            "genres": [],
+            "location_short": "LDN",
+            "location_long": "London",
+            "intensity": null,
+            "media": {
+              "background_large": "https://media2.ntslive.co.uk/resize/1600x1600/8cc71ee1-b0bb-40be-b63c-7ab9e560a9c3_1560988800.jpeg",
+              "background_medium_large": "https://media2.ntslive.co.uk/resize/800x800/8cc71ee1-b0bb-40be-b63c-7ab9e560a9c3_1560988800.jpeg",
+              "background_medium": "https://media.ntslive.co.uk/resize/400x400/8cc71ee1-b0bb-40be-b63c-7ab9e560a9c3_1560988800.jpeg",
+              "background_small": "https://media3.ntslive.co.uk/resize/200x200/8cc71ee1-b0bb-40be-b63c-7ab9e560a9c3_1560988800.jpeg",
+              "background_thumb": "https://media3.ntslive.co.uk/resize/100x100/8cc71ee1-b0bb-40be-b63c-7ab9e560a9c3_1560988800.jpeg",
+              "picture_large": "https://media2.ntslive.co.uk/resize/1600x1600/8cc71ee1-b0bb-40be-b63c-7ab9e560a9c3_1560988800.jpeg",
+              "picture_medium_large": "https://media2.ntslive.co.uk/resize/800x800/8cc71ee1-b0bb-40be-b63c-7ab9e560a9c3_1560988800.jpeg",
+              "picture_medium": "https://media.ntslive.co.uk/resize/400x400/8cc71ee1-b0bb-40be-b63c-7ab9e560a9c3_1560988800.jpeg",
+              "picture_small": "https://media3.ntslive.co.uk/resize/200x200/8cc71ee1-b0bb-40be-b63c-7ab9e560a9c3_1560988800.jpeg",
+              "picture_thumb": "https://media3.ntslive.co.uk/resize/100x100/8cc71ee1-b0bb-40be-b63c-7ab9e560a9c3_1560988800.jpeg"
+            },
+            "episode_alias": "chris-taylor-cabin-fever-23rd-june-2019",
+            "show_alias": "wxaxrxp",
+            "broadcast": "2019-06-23T16:00:00+00:00",
+            "mixcloud": null,
+            "embeds": {},
+            "links": [
+              {
+                "rel": "self",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp/episodes/chris-taylor-cabin-fever-23rd-june-2019",
+                "type": "application/vnd.episode+json;charset=utf-8"
+              },
+              {
+                "rel": "show",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp",
+                "type": "application/vnd.show+json;charset=utf-8"
+              },
+              {
+                "rel": "tracklist",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp/episodes/chris-taylor-cabin-fever-23rd-june-2019/tracklist",
+                "type": "application/vnd.track-list+json;charset=utf-8"
+              }
+            ]
+          }
+        },
+        "links": [
+          {
+            "href": "https://www.nts.live/api/v2/shows/wxaxrxp/episodes/chris-taylor-cabin-fever-23rd-june-2019",
+            "rel": "details",
+            "type": "application/vnd.episode+json;charset=utf-8"
+          }
+        ]
+      },
+      "next": {
+        "broadcast_title": "Darkstar - Dance Unity feat. James McVinnie at New Music Biennial 2017",
+        "start_timestamp": "2019-06-23T18:45:00+01:00",
+        "end_timestamp": "2019-06-23T19:00:00+01:00",
+        "embeds": {
+          "details": {
+            "status": "pending",
+            "updated": "2019-06-23T12:35:27+00:00",
+            "name": "Darkstar - Dance Unity feat. James McVinnie at New Music Biennial, 2017 ",
+            "description": "Celebrating 30 years of Warp with 100 hours of original programming from across the roster. Broadcasting non-stop globally on NTS Radio. ’89-infinity.\nMore Darkstar",
+            "description_html": "<h3>Celebrating 30 years of Warp with 100 hours of original programming from across the roster. Broadcasting non-stop globally on NTS Radio. ’89-infinity.</h3>\n<p><a href=\"https://artists.wxaxrxp.net/darkstar\" target=\"_blank\">More Darkstar</a></p>",
+            "facebook": "https://www.facebook.com/darkstar.uk.official",
+            "twitter": "https://twitter.com/darkstar",
+            "website": "https://www.instagram.com/darkstar_band/",
+            "moods": [],
+            "genres": [],
+            "location_short": "LDN",
+            "location_long": "London",
+            "intensity": null,
+            "media": {
+              "background_large": "https://media2.ntslive.co.uk/resize/1600x1600/859331f8-101e-496c-975e-88ae6581413c_1561075200.png",
+              "background_medium_large": "https://media2.ntslive.co.uk/resize/800x800/859331f8-101e-496c-975e-88ae6581413c_1561075200.png",
+              "background_medium": "https://media.ntslive.co.uk/resize/400x400/859331f8-101e-496c-975e-88ae6581413c_1561075200.png",
+              "background_small": "https://media3.ntslive.co.uk/resize/200x200/859331f8-101e-496c-975e-88ae6581413c_1561075200.png",
+              "background_thumb": "https://media3.ntslive.co.uk/resize/100x100/859331f8-101e-496c-975e-88ae6581413c_1561075200.png",
+              "picture_large": "https://media2.ntslive.co.uk/resize/1600x1600/859331f8-101e-496c-975e-88ae6581413c_1561075200.png",
+              "picture_medium_large": "https://media2.ntslive.co.uk/resize/800x800/859331f8-101e-496c-975e-88ae6581413c_1561075200.png",
+              "picture_medium": "https://media.ntslive.co.uk/resize/400x400/859331f8-101e-496c-975e-88ae6581413c_1561075200.png",
+              "picture_small": "https://media3.ntslive.co.uk/resize/200x200/859331f8-101e-496c-975e-88ae6581413c_1561075200.png",
+              "picture_thumb": "https://media3.ntslive.co.uk/resize/100x100/859331f8-101e-496c-975e-88ae6581413c_1561075200.png"
+            },
+            "episode_alias": "darkstar-dance-unity-23rd-june-2019",
+            "show_alias": "wxaxrxp",
+            "broadcast": "2019-06-23T17:45:00+00:00",
+            "mixcloud": null,
+            "embeds": {},
+            "links": [
+              {
+                "rel": "self",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp/episodes/darkstar-dance-unity-23rd-june-2019",
+                "type": "application/vnd.episode+json;charset=utf-8"
+              },
+              {
+                "rel": "show",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp",
+                "type": "application/vnd.show+json;charset=utf-8"
+              },
+              {
+                "rel": "tracklist",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp/episodes/darkstar-dance-unity-23rd-june-2019/tracklist",
+                "type": "application/vnd.track-list+json;charset=utf-8"
+              }
+            ]
+          }
+        },
+        "links": [
+          {
+            "href": "https://www.nts.live/api/v2/shows/wxaxrxp/episodes/darkstar-dance-unity-23rd-june-2019",
+            "rel": "details",
+            "type": "application/vnd.episode+json;charset=utf-8"
+          }
+        ]
+      }
+    },
+    {
+      "channel_name": "2",
+      "now": {
+        "broadcast_title": "Yves Tumor - NTS London, 29th June 2018",
+        "start_timestamp": "2019-06-23T17:00:00+01:00",
+        "end_timestamp": "2019-06-23T17:57:00+01:00",
+        "embeds": {
+          "details": {
+            "status": "pending",
+            "updated": "2019-06-23T12:45:45+00:00",
+            "name": "Yves Tumor - NTS London, 29th June 2018",
+            "description": "Celebrating 30 years of Warp with 100 hours of original programming from across the roster. Broadcasting non-stop globally on NTS Radio. ’89-infinity.",
+            "description_html": "<h3>Celebrating 30 years of Warp with 100 hours of original programming from across the roster. Broadcasting non-stop globally on NTS Radio. ’89-infinity.</h3>",
+            "facebook": "https://www.facebook.com/yvestumor/",
+            "twitter": "https://twitter.com/yvestumor",
+            "website": null,
+            "moods": [],
+            "genres": [],
+            "location_short": "LDN",
+            "location_long": "London",
+            "intensity": null,
+            "media": {
+              "background_large": "https://media2.ntslive.co.uk/resize/1600x1600/2e8e242c-cae4-4eb4-a6e6-06ba40c878e9_1519344000.jpeg",
+              "background_medium_large": "https://media2.ntslive.co.uk/resize/800x800/2e8e242c-cae4-4eb4-a6e6-06ba40c878e9_1519344000.jpeg",
+              "background_medium": "https://media.ntslive.co.uk/resize/400x400/2e8e242c-cae4-4eb4-a6e6-06ba40c878e9_1519344000.jpeg",
+              "background_small": "https://media3.ntslive.co.uk/resize/200x200/2e8e242c-cae4-4eb4-a6e6-06ba40c878e9_1519344000.jpeg",
+              "background_thumb": "https://media3.ntslive.co.uk/resize/100x100/2e8e242c-cae4-4eb4-a6e6-06ba40c878e9_1519344000.jpeg",
+              "picture_large": "https://media2.ntslive.co.uk/resize/1600x1600/2e8e242c-cae4-4eb4-a6e6-06ba40c878e9_1519344000.jpeg",
+              "picture_medium_large": "https://media2.ntslive.co.uk/resize/800x800/2e8e242c-cae4-4eb4-a6e6-06ba40c878e9_1519344000.jpeg",
+              "picture_medium": "https://media.ntslive.co.uk/resize/400x400/2e8e242c-cae4-4eb4-a6e6-06ba40c878e9_1519344000.jpeg",
+              "picture_small": "https://media3.ntslive.co.uk/resize/200x200/2e8e242c-cae4-4eb4-a6e6-06ba40c878e9_1519344000.jpeg",
+              "picture_thumb": "https://media3.ntslive.co.uk/resize/100x100/2e8e242c-cae4-4eb4-a6e6-06ba40c878e9_1519344000.jpeg"
+            },
+            "episode_alias": "yves-tumor-23rd-june-2019",
+            "show_alias": "wxaxrxp",
+            "broadcast": "2019-06-23T16:00:00+00:00",
+            "mixcloud": null,
+            "embeds": {},
+            "links": [
+              {
+                "rel": "self",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp/episodes/yves-tumor-23rd-june-2019",
+                "type": "application/vnd.episode+json;charset=utf-8"
+              },
+              {
+                "rel": "show",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp",
+                "type": "application/vnd.show+json;charset=utf-8"
+              },
+              {
+                "rel": "tracklist",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp/episodes/yves-tumor-23rd-june-2019/tracklist",
+                "type": "application/vnd.track-list+json;charset=utf-8"
+              }
+            ]
+          }
+        },
+        "links": [
+          {
+            "href": "https://www.nts.live/api/v2/shows/wxaxrxp/episodes/yves-tumor-23rd-june-2019",
+            "rel": "details",
+            "type": "application/vnd.episode+json;charset=utf-8"
+          }
+        ]
+      },
+      "next": {
+        "broadcast_title": "Warp Works",
+        "start_timestamp": "2019-06-23T17:57:00+01:00",
+        "end_timestamp": "2019-06-23T18:00:00+01:00",
+        "embeds": {
+          "details": {
+            "status": "pending",
+            "updated": "2019-06-21T09:40:21+00:00",
+            "name": "WXAXRXP ",
+            "description": "Celebrating 30 years of Warp with 100 hours of original programming from across the roster. Broadcasting non-stop globally on NTS Radio. ’89-infinity.",
+            "description_html": "<h3>Celebrating 30 years of Warp with 100 hours of original programming from across the roster. Broadcasting non-stop globally on NTS Radio. ’89-infinity.</h3>",
+            "facebook": null,
+            "twitter": null,
+            "website": null,
+            "moods": [],
+            "genres": [],
+            "location_short": "LDN",
+            "location_long": "London",
+            "intensity": null,
+            "media": {
+              "background_large": "https://media2.ntslive.co.uk/resize/1600x1600/3ad3f877-8438-466c-8ee6-ccb3e4df40fb_1561075200.png",
+              "background_medium_large": "https://media2.ntslive.co.uk/resize/800x800/3ad3f877-8438-466c-8ee6-ccb3e4df40fb_1561075200.png",
+              "background_medium": "https://media.ntslive.co.uk/resize/400x400/3ad3f877-8438-466c-8ee6-ccb3e4df40fb_1561075200.png",
+              "background_small": "https://media3.ntslive.co.uk/resize/200x200/3ad3f877-8438-466c-8ee6-ccb3e4df40fb_1561075200.png",
+              "background_thumb": "https://media3.ntslive.co.uk/resize/100x100/3ad3f877-8438-466c-8ee6-ccb3e4df40fb_1561075200.png",
+              "picture_large": "https://media2.ntslive.co.uk/resize/1600x1600/3ad3f877-8438-466c-8ee6-ccb3e4df40fb_1561075200.png",
+              "picture_medium_large": "https://media2.ntslive.co.uk/resize/800x800/3ad3f877-8438-466c-8ee6-ccb3e4df40fb_1561075200.png",
+              "picture_medium": "https://media.ntslive.co.uk/resize/400x400/3ad3f877-8438-466c-8ee6-ccb3e4df40fb_1561075200.png",
+              "picture_small": "https://media3.ntslive.co.uk/resize/200x200/3ad3f877-8438-466c-8ee6-ccb3e4df40fb_1561075200.png",
+              "picture_thumb": "https://media3.ntslive.co.uk/resize/100x100/3ad3f877-8438-466c-8ee6-ccb3e4df40fb_1561075200.png"
+            },
+            "show_alias": "wxaxrxp",
+            "timeslot": "",
+            "frequency": "",
+            "type": "series",
+            "embeds": {},
+            "links": [
+              {
+                "rel": "self",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp",
+                "type": "application/vnd.show+json;charset=utf-8"
+              },
+              {
+                "rel": "episodes",
+                "href": "https://www.nts.live/api/v2/shows/wxaxrxp/episodes",
+                "type": "application/vnd.episode-list+json;charset=utf-8"
+              }
+            ]
+          }
+        },
+        "links": [
+          {
+            "href": "https://www.nts.live/api/v2/shows/wxaxrxp",
+            "rel": "details",
+            "type": "application/vnd.show+json;charset=utf-8"
+          }
+        ]
+      }
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://www.nts.live/api/v2/live",
+      "type": "application/vnd.live-list+json;charset=utf-8"
+    }
+  ]
+}

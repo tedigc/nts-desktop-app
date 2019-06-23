@@ -7,6 +7,7 @@ const streams = [
 
 const statusSpan = document.querySelector("#status");
 const channelSpan = document.querySelector("#channel");
+const locationSpan = document.querySelector("#location");
 
 let audio = new Audio(streams[0]);
 let paused = true;
@@ -27,11 +28,32 @@ ipcRenderer.on("togglePause", () => {
 
 ipcRenderer.on("switchChannels", () => {
   channel ^= 1;
-  channelSpan.innerText = `Channel ${channel + 1}`;
+  channelSpan.innerText = `${channel + 1}`;
 
   audio.pause();
   delete audio;
 
   audio = new Audio(streams[channel]);
   audio.play();
+});
+
+window.addEventListener("load", () => {
+  const headers = new Headers();
+  headers.append("pragma", "no-cache");
+  headers.append("cache-control", "no-cache");
+
+  fetch("https://www.nts.live/api/v2/live", { headers })
+    .then(res => res.json())
+    .then(data => {
+      const {
+        name,
+        description,
+        media,
+        location_long
+      } = data.results[0].now.embeds.details;
+      locationSpan.innerText = location_long;
+      document.body.style.backgroundImage = `url('${
+        media.background_medium_large
+      }')`;
+    });
 });
