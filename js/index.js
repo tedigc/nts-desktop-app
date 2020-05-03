@@ -11,9 +11,11 @@ const streams = [
 // DOM elements
 const audioPlayer = document.querySelector("#audio-player");
 const locationSpan = document.querySelector("#location");
-const channelSpan = document.querySelector("#channel");
 const timeSpan = document.querySelector("#time");
 const nameSpan = document.querySelector("#name");
+
+// const stream1Div = document.querySelector("#stream-1");
+// stream1Div.classList.add("active");
 
 // Play/pause the current stream
 ipcRenderer.on("togglepause", () => {
@@ -32,20 +34,35 @@ ipcRenderer.on("togglepause", () => {
 // Switch between stream channels and update the UI
 ipcRenderer.on("switchchannels", () => {
   channel ^= 1;
-  updateUI(channel);
-  audioPlayer.pause();
-  audioPlayer.setAttribute("src", streams[channel]);
-  audioPlayer.load();
-  audioPlayer.play();
+  // updateUI(channel);
+  // audioPlayer.pause();
+  // audioPlayer.setAttribute("src", streams[channel]);
+  // audioPlayer.load();
+  // audioPlayer.play();
+
+  const stream1 = document.querySelector("#stream-1");
+  if (channel === 0) {
+    stream1.classList.remove("inactive");
+    stream1.classList.add("active");
+  } else {
+    stream1.classList.remove("active");
+    stream1.classList.add("inactive");
+  }
 });
 
 // Update the time, location, artist, and background image
-const updateUI = (channel) => {
-  channelSpan.innerText = `${channel + 1}`;
-  timeSpan.innerText = streamData[channel].time;
+const updateUi = (channel, streamData) => {
+  const index = channel + 1;
+
+  const nameSpan = document.querySelector(`#stream-${index}-name`);
+  const timeSpan = document.querySelector(`#stream-${index}-time`);
+  const locationSpan = document.querySelector(`#stream-${index}-location`);
+  const streamDiv = document.querySelector(`#stream-${index}`);
+
   nameSpan.innerHTML = streamData[channel].name;
+  timeSpan.innerText = streamData[channel].time;
   locationSpan.innerText = streamData[channel].location;
-  document.body.style.backgroundImage = `url('${streamData[channel].background}')`;
+  streamDiv.style.backgroundImage = `url('${streamData[channel].background}')`;
 };
 
 // Format info from the NTS API into a leaner object
@@ -76,6 +93,6 @@ window.addEventListener("load", () => {
     .then((data) => {
       streamData[0] = apiToStreamData(data, 0);
       streamData[1] = apiToStreamData(data, 1);
-      updateUI(channel);
+      updateUi(channel, streamData);
     });
 });

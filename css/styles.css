@@ -15,11 +15,8 @@
 
 body {
   color: #fff;
-  background-color: #fff;
-  background-position: center;
-  background-size: cover;
+  background-color: #000;
   z-index: -2;
-  padding: 0.5rem;
 }
 
 .panel {
@@ -48,7 +45,7 @@ div {
   }
 }
 
-#flashing-light {
+.flashing-light {
   background-color: #e81717;
   width: 0.5rem;
   height: 0.5rem;
@@ -59,17 +56,19 @@ div {
   margin-left: 0.25rem;
 }
 
-#channel-and-time-wrapper {
+.channel-and-time-wrapper {
   display: inline-block;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
 }
 
-#channel-and-time {
+.channel-and-time {
   display: flex;
   flex-direction: row;
   flex-basis: auto;
 }
 
-#channel {
+.channel {
   width: 2rem;
   height: 2rem;
   margin-right: 0.5rem;
@@ -84,20 +83,20 @@ div {
   color: #000;
 }
 
-#header-content {
+.header-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-#time {
+.time {
   text-transform: uppercase;
   line-height: 0.9;
   margin-left: -1px;
   color: #ddd;
 }
 
-#live-now {
+.live-now {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 900;
@@ -105,17 +104,18 @@ div {
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
 }
 
-#location-and-name {
-  position: fixed;
+.location-and-name {
+  position: absolute;
   bottom: 0.5rem;
   left: 0.5rem;
   display: flex;
   flex-direction: column;
 }
 
-#location {
+.location {
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 0.9;
@@ -123,7 +123,24 @@ div {
   align-self: flex-start;
 }
 
-#name {
+.name {
   font-size: 22px;
   align-self: flex-start;
+}
+
+#stream-1 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  transition: left 0.3s ease-in-out;
+  background-position: center;
+  background-size: cover;
+}
+
+.active {
+  left: 0;
+}
+
+.inactive {
+  left: -100%;
 }
