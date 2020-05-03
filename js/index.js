@@ -49,9 +49,9 @@ window.addEventListener("load", () => {
 
 const updateUI = (channel) => {
   channelSpan.innerText = `${channel + 1}`;
-  // locationSpan.innerText = streamData[channel].location;
   timeSpan.innerText = streamData[channel].time;
   nameSpan.innerHTML = streamData[channel].name;
+  locationSpan.innerText = streamData[channel].location;
   document.body.style.backgroundImage = `url('${streamData[channel].background}')`;
 };
 

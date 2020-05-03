@@ -6,7 +6,6 @@
 * {
   /* font-family: Arial; */
   /* letter-spacing: 0.05px; */
-  font-family: "UniversCondensed";
   overflow-y: visible;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -29,9 +28,40 @@ body {
   padding: 0.5rem;
 }
 
+span,
+div {
+  font-family: "UniversCondensed";
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 0.9;
+}
+
+@keyframes flashing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#flashing-light {
+  background-color: #e81717;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation-name: flashing;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
 #channel-and-time {
   display: flex;
   flex-direction: row;
+  flex-basis: auto;
 }
 
 #channel {
@@ -55,15 +85,7 @@ body {
   justify-content: space-between;
 }
 
-#location {
-  font-family: "UniversCondensed";
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: 0.9;
-}
-
 #time {
-  font-family: "UniversCondensed";
   text-transform: uppercase;
   line-height: 0.9;
   margin-left: -1px;
@@ -71,22 +93,28 @@ body {
 }
 
 #live-now {
-  font-family: "UniversCondensed";
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 900;
   line-height: 0.9;
 }
 
-#name {
+#location-and-name {
   position: fixed;
   bottom: 0.5rem;
   left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
 
-  font-family: "UniversCondensed";
-  font-size: 22px;
+#location {
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 900;
   line-height: 0.9;
+  margin-bottom: 0.5rem;
+  align-self: flex-start;
+}
+
+#name {
+  font-size: 22px;
 }
