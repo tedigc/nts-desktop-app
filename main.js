@@ -14,28 +14,17 @@ app.on("ready", () => {
   // Initialise tray
   const icon = nativeImage.createFromDataURL(base64Icon);
   tray = new Tray(icon);
-  tray.on("click", function (event) {
-    toggleWindowVisibility();
-
-    // Show devtools when command clicked
-    if (window.isVisible() && process.defaultApp && event.metaKey) {
-      window.openDevTools({ mode: "detach" });
-    }
-  });
+  tray.on("click", toggleWindowVisibility);
 
   // Initialise menu
   window = new BrowserWindow({
     width: 320,
     height: 240,
-    // width: 1100,
-    // height: 800,
     show: false,
     frame: false,
     resizable: false,
     alwaysOnTop: true,
-    webPreferences: {
-      nodeIntegration: true,
-    },
+    webPreferences: { nodeIntegration: true },
   });
 
   // Ensure window appears on top of fullscreen applications
@@ -53,14 +42,10 @@ app.on("ready", () => {
   });
 
   // Configure keyboard shortcuts
-
   globalShortcut.register("CommandOrControl+P", () => {
-    console.log("Command: Toggle pause");
     window.webContents.send("togglepause");
   });
-
   globalShortcut.register("CommandOrControl+L", () => {
-    console.log("Command: Switch channels");
     window.webContents.send("switchchannels");
   });
 });
