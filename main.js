@@ -15,7 +15,7 @@ app.on("ready", () => {
   const icon = nativeImage.createFromDataURL(base64Icon);
   tray = new Tray(icon);
   tray.on("click", function (event) {
-    toggleWindow();
+    toggleWindowVisibility();
 
     // Show devtools when command clicked
     if (window.isVisible() && process.defaultApp && event.metaKey) {
@@ -25,10 +25,10 @@ app.on("ready", () => {
 
   // Initialise menu
   window = new BrowserWindow({
-    // width: 320,
-    // height: 240,
-    width: 1100,
-    height: 800,
+    width: 320,
+    height: 240,
+    // width: 1100,
+    // height: 800,
     show: false,
     frame: false,
     resizable: false,
@@ -53,6 +53,7 @@ app.on("ready", () => {
   });
 
   // Configure keyboard shortcuts
+
   globalShortcut.register("CommandOrControl+P", () => {
     console.log("Command: Toggle pause");
     window.webContents.send("togglepause");
@@ -64,7 +65,7 @@ app.on("ready", () => {
   });
 });
 
-const toggleWindow = () => {
+const toggleWindowVisibility = () => {
   if (window.isVisible()) {
     window.hide();
   } else {
