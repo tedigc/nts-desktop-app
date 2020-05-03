@@ -125,4 +125,5 @@ div {
 
 #name {
   font-size: 22px;
+  align-self: flex-start;
 }
