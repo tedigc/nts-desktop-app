@@ -8,13 +8,21 @@ const streams = [
   "https://stream-relay-geo.ntslive.net/stream2?client=NTSWebApp",
 ];
 
-// DOM elements
-const audioPlayer = document.querySelector("#audio-player");
-const stream1 = document.querySelector("#stream-1");
-const stream2 = document.querySelector("#stream-2");
+// When the page first loads, fetch details about the current streams
+window.addEventListener("load", () => {
+  fetch("https://www.nts.live/api/v2/live", { cache: "no-store" })
+    .then((res) => res.json())
+    .then((data) => {
+      streamData[0] = apiToStreamData(data, 0);
+      streamData[1] = apiToStreamData(data, 1);
+      updateUi(0, streamData);
+      updateUi(1, streamData);
+    });
+});
 
 // Play/pause the current stream
 ipcRenderer.on("togglepause", () => {
+  const audioPlayer = document.querySelector("#audio-player");
   if (audioPlayer.paused) {
     // Play
     audioPlayer.setAttribute("src", streams[channel]);
@@ -27,14 +35,17 @@ ipcRenderer.on("togglepause", () => {
   }
 });
 
-// Switch between stream channels and update the UI
+// Switch between stream channels and then update the UI
 ipcRenderer.on("switchchannels", () => {
   channel ^= 1;
+  const audioPlayer = document.querySelector("#audio-player");
   audioPlayer.pause();
   audioPlayer.setAttribute("src", streams[channel]);
   audioPlayer.load();
   audioPlayer.play();
 
+  const stream1 = document.querySelector("#stream-1");
+  const stream2 = document.querySelector("#stream-2");
   if (channel === 0) {
     stream1.classList.add("active-1");
     stream2.classList.add("inactive-2");
@@ -83,15 +94,3 @@ const apiToStreamData = (data, channel) => {
   // Return a reduced subset of the stream info
   return { name, time, description, location, background };
 };
-
-// When the page first loads, fetch details about the current streams
-window.addEventListener("load", () => {
-  fetch("https://www.nts.live/api/v2/live", { cache: "no-store" })
-    .then((res) => res.json())
-    .then((data) => {
-      streamData[0] = apiToStreamData(data, 0);
-      streamData[1] = apiToStreamData(data, 1);
-      updateUi(0, streamData);
-      updateUi(1, streamData);
-    });
-});
