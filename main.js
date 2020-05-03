@@ -31,7 +31,7 @@ app.on("ready", () => {
   // Ensure window appears on top of fullscreen applications
   window.setAlwaysOnTop(true, "floating");
   window.setVisibleOnAllWorkspaces(true);
-  window.setFullScreenable(false);
+  window.fullScreenable = false;
 
   // Set the window's content
   window.loadURL(path.join("file://", __dirname, "index.html"));
