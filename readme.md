@@ -1,6 +1,9 @@
 # NTS desktop app
 
-A desktop app for listening to NTS radio. Play/pause and switch stations using media keys or open NTS in preview mode through the system tray.
+A desktop app for listening to NTS radio. Play/pause and switch stations using keyboard shortcuts or open NTS in preview mode through the system tray.
+
+- To play/pause press `Cmd + P` or `Ctrl + P`
+- To switch streams press `Cmd + L` or `Ctrl + L`
 
 Quick start guide:
 
@@ -10,6 +13,17 @@ cd nts-desktop-app
 yarn
 yarn start
 ```
+
+---
+
+### Screenshots
+
+<table>
+  <tr>
+    <td><img src="screenshots/screenshot_0.png" height="256px" alt="Screenshot 1"></td>
+    <td><img src="screenshots/screenshot_1.png" height="256px" alt="Screenshot 2"></td>
+  </tr>
+</table>
 
 ---
 
