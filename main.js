@@ -3,7 +3,7 @@ const {
   Tray,
   nativeImage,
   BrowserWindow,
-  globalShortcut
+  globalShortcut,
 } = require("electron");
 const path = require("path");
 
@@ -14,7 +14,7 @@ app.on("ready", () => {
   // Initialise tray
   const icon = nativeImage.createFromDataURL(base64Icon);
   tray = new Tray(icon);
-  tray.on("click", function(event) {
+  tray.on("click", function (event) {
     toggleWindow();
 
     // Show devtools when command clicked
@@ -25,17 +25,17 @@ app.on("ready", () => {
 
   // Initialise menu
   window = new BrowserWindow({
-    width: 320,
-    height: 240,
-    // width: 550,
-    // height: 400,
+    // width: 320,
+    // height: 240,
+    width: 1100,
+    height: 800,
     show: false,
     frame: false,
     resizable: false,
     alwaysOnTop: true,
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   });
 
   // Ensure window appears on top of fullscreen applications
@@ -55,12 +55,12 @@ app.on("ready", () => {
   // Configure keyboard shortcuts
   globalShortcut.register("CommandOrControl+P", () => {
     console.log("Command: Toggle pause");
-    window.webContents.send("togglePause");
+    window.webContents.send("togglepause");
   });
 
   globalShortcut.register("CommandOrControl+L", () => {
     console.log("Command: Switch channels");
-    window.webContents.send("switchChannels");
+    window.webContents.send("switchchannels");
   });
 });
 

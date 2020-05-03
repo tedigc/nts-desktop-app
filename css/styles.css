@@ -16,30 +16,11 @@
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ol,
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 16px;
-}
-
 body {
   color: #fff;
   background-color: #000;
   background-position: center;
   background-size: cover;
-  padding: 1rem;
   z-index: -2;
 }
 
@@ -55,6 +36,8 @@ body {
 
 header {
   position: fixed;
+  top: 1rem;
+  left: 1rem;
   display: flex;
   height: 2.5rem;
 }
@@ -98,7 +81,18 @@ h3 {
 #time {
   font-family: "UniversCondensed";
   position: fixed;
+  top: 1rem;
   right: 1rem;
   font-size: 1.5rem;
   letter-spacing: 0px;
+}
+
+#name {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  background-color: #000;
+  right: 1rem;
+  /* padding: 0.25rem; */
 }
