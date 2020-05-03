@@ -10,12 +10,8 @@ const streams = [
 
 // DOM elements
 const audioPlayer = document.querySelector("#audio-player");
-const locationSpan = document.querySelector("#location");
-const timeSpan = document.querySelector("#time");
-const nameSpan = document.querySelector("#name");
-
-// const stream1Div = document.querySelector("#stream-1");
-// stream1Div.classList.add("active");
+const stream1 = document.querySelector("#stream-1");
+const stream2 = document.querySelector("#stream-2");
 
 // Play/pause the current stream
 ipcRenderer.on("togglepause", () => {
@@ -34,19 +30,21 @@ ipcRenderer.on("togglepause", () => {
 // Switch between stream channels and update the UI
 ipcRenderer.on("switchchannels", () => {
   channel ^= 1;
-  // updateUI(channel);
-  // audioPlayer.pause();
-  // audioPlayer.setAttribute("src", streams[channel]);
-  // audioPlayer.load();
-  // audioPlayer.play();
+  audioPlayer.pause();
+  audioPlayer.setAttribute("src", streams[channel]);
+  audioPlayer.load();
+  audioPlayer.play();
 
-  const stream1 = document.querySelector("#stream-1");
   if (channel === 0) {
-    stream1.classList.remove("inactive");
-    stream1.classList.add("active");
+    stream1.classList.add("active-1");
+    stream2.classList.add("inactive-2");
+    stream1.classList.remove("inactive-1");
+    stream2.classList.remove("active-2");
   } else {
-    stream1.classList.remove("active");
-    stream1.classList.add("inactive");
+    stream1.classList.add("inactive-1");
+    stream2.classList.add("active-2");
+    stream1.classList.remove("active-1");
+    stream2.classList.remove("inactive-2");
   }
 });
 
@@ -93,6 +91,7 @@ window.addEventListener("load", () => {
     .then((data) => {
       streamData[0] = apiToStreamData(data, 0);
       streamData[1] = apiToStreamData(data, 1);
-      updateUi(channel, streamData);
+      updateUi(0, streamData);
+      updateUi(1, streamData);
     });
 });

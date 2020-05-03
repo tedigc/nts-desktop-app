@@ -13,12 +13,6 @@
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
 }
 
-body {
-  color: #fff;
-  background-color: #000;
-  z-index: -2;
-}
-
 .panel {
   background-color: #000;
   color: #fff;
@@ -137,10 +131,27 @@ div {
   background-size: cover;
 }
 
-.active {
+#stream-2 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  transition: left 0.3s ease-in-out;
+  background-position: center;
+  background-size: cover;
+}
+
+.active-1 {
   left: 0;
 }
 
-.inactive {
+.inactive-1 {
   left: -100%;
+}
+
+.active-2 {
+  left: 0;
+}
+
+.inactive-2 {
+  left: 100%;
 }
