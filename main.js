@@ -12,7 +12,8 @@ let window;
 
 app.on("ready", () => {
   // Initialise tray
-  const icon = nativeImage.createFromDataURL(base64Icon);
+  let icon = nativeImage.createFromPath("./images/icon-crop.png");
+  icon = icon.resize({ width: 16, height: 16 });
   tray = new Tray(icon);
   tray.on("click", toggleWindowVisibility);
 
