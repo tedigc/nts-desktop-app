@@ -50,12 +50,17 @@ div {
 
 #flashing-light {
   background-color: #e81717;
-  width: 8px;
-  height: 8px;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
   animation-name: flashing;
   animation-duration: 2s;
   animation-iteration-count: infinite;
+  margin-left: 0.25rem;
+}
+
+#channel-and-time-wrapper {
+  display: inline-block;
 }
 
 #channel-and-time {
@@ -97,6 +102,9 @@ div {
   letter-spacing: 1px;
   font-weight: 900;
   line-height: 0.9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #location-and-name {
