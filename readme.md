@@ -18,12 +18,7 @@ yarn start
 
 ### Screenshots
 
-<table>
-  <tr>
-    <td><img src="screenshots/screenshot_0.png" height="256px" alt="Screenshot 1"></td>
-    <td><img src="screenshots/screenshot_1.png" height="256px" alt="Screenshot 2"></td>
-  </tr>
-</table>
+<img src="screenshots/recording.gif" alt="Preview gif">
 
 ---
 
