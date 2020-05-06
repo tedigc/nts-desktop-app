@@ -78,12 +78,9 @@ const updateUi = (channel, streamData) => {
 const apiToStreamData = (data, channel) => {
   // Format the start and end time for the current show
   const { start_timestamp, end_timestamp } = data.results[channel].now;
-  const start = new Date(start_timestamp);
-  const end = new Date(end_timestamp);
-  const options = { hour: "2-digit", minute: "2-digit" };
-  const startTimeString = start.toLocaleTimeString("en-GB", options);
-  const endTimeString = end.toLocaleTimeString("en-GB", options);
-  const time = `${startTimeString} - ${endTimeString}`;
+  const start = formatTimestamp(start_timestamp);
+  const end = formatTimestamp(end_timestamp);
+  const time = `${start} - ${end}`;
 
   // Grab any other useful details
   const details = data.results[channel].now.embeds.details;
@@ -93,4 +90,10 @@ const apiToStreamData = (data, channel) => {
 
   // Return a reduced subset of the stream info
   return { name, time, description, location, background };
+};
+
+const formatTimestamp = (timestamp) => {
+  const date = new Date(timestamp);
+  const options = { hour: "2-digit", minute: "2-digit" };
+  return date.toLocaleTimeString("en-GB", options);
 };

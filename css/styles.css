@@ -105,22 +105,45 @@ div {
   position: absolute;
   bottom: 0.5rem;
   left: 0.5rem;
-  display: flex;
-  flex-direction: column;
+  padding-right: 0.5rem;
+}
+
+.location-block-wrapper {
+  margin-bottom: 1.2rem;
 }
 
 .location {
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 0.9;
-  margin-bottom: 0.5rem;
-  align-self: flex-start;
 }
 
 .name {
   font-size: 22px;
-  align-self: flex-start;
+  line-height: 1.3;
+  background-color: #000;
+  color: #fff;
+  display: inline;
+  padding: 0.5rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+
+  /* Needs prefixing */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
+
+/* .name {
+  font-size: 22px;
+  align-self: flex-start;
+  display: inline;
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem;
+
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+} */
 
 #stream-1 {
   width: 100%;
